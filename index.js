@@ -139,6 +139,7 @@ app.post("/verify-otp", async (req, res) => {
 
 
 
+
 app.get("/me", authMiddleware, async(req, res) =>{
     try{
         const user = await UserModel.findById(req.user.userId).select("-otp -otpExpiry");
@@ -161,6 +162,7 @@ app.get("/me", authMiddleware, async(req, res) =>{
         });
     }
 });
+
 
 
 
@@ -203,3 +205,7 @@ mongoose
     .catch((err) => {
         console.log("❌ MongoDB Connection Error:", err);
     });
+
+
+
+
